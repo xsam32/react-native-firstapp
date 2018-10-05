@@ -19,6 +19,7 @@ import {
   Label,
   Thumbnail
 } from "native-base";
+import HelloUser from "./components/hello_user";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -51,8 +52,9 @@ export default class App extends React.Component {
       return <Expo.AppLoading />;
     }
 
-    return (
-      <Container>
+    let helloUserData = { username: "Mr. Thawat", color: "red" };
+
+    return <Container>
         <Header>
           <Body>
             <Title>My App</Title>
@@ -79,15 +81,9 @@ export default class App extends React.Component {
               <Text>Home</Text>
             </Button>
           </Form>
-          <Thumbnail
-            style={{width:300, height: 100}}
-            source={{
-              uri:
-                "https://www.google.co.th/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-            }}
-          />
+          <Thumbnail style={{ width: 300, height: 100 }} source={{ uri: "https://www.google.co.th/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" }} />
+          <HelloUser username="Mr. Thawat" color="red" data={helloUserData} />
         </Content>
-      </Container>
-    );
+      </Container>;
   }
 }
